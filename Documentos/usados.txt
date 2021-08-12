@@ -1,0 +1,5 @@
+yarn add react-slick //Carrossel
+@material-ui/core //Material Ui
+@material-ui/icons //Material Ui icons
+styled-components
+styled-reset
