@@ -24,7 +24,7 @@ const theme = (props)=>{
                 primary: '#6200ee',
                 background: '#00000014',
                 backgroundAlternative: '#ffffff',
-                backgroundAlternative2: '',
+                backgroundAlternative2: '#ebebeb',
                 text: '#000000B3',
                 textAlternative: '#ffffff',
                 success: '#135E01'

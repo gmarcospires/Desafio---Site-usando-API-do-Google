@@ -1,12 +1,23 @@
 import React from "react";
-import styled from 'styled-components'
-import { Restaurant } from "./style";
+import { Address, Restaurant, RestaurantInfo, Title, RestaurantPhoto } from "./style";
+import ReactStars from "react-rating-stars-component";
+import restaurante from '../../assets/restaurante-fake.png'
 
-
-
-const RestaurantCard = ({photo,title}) =>{
+const RestaurantCard = () =>{
     return(
-        <Restaurant></Restaurant>
+        <Restaurant>
+            <RestaurantInfo>
+               <Title> Pé de Fava</Title>
+                <ReactStars
+                    count={5}
+                    isHalf
+                    edit={false}
+                    value={4}
+                ></ReactStars>
+               <Address>Rua dos Bobos, 0 - Guarulhos</Address>
+            </RestaurantInfo>
+            <RestaurantPhoto src={restaurante} alt='Foto do Restaurante'/>
+        </Restaurant>
     )
 }
 

@@ -10,7 +10,7 @@ export const Container = styled.aside`
     background-color: ${(props) => props.theme.colors.background};
     width: 360px;
     height: 100vh;
-    overflow-y: auto;
+    // overflow-y: auto;
 `;
 
 export const Search = styled.section`
@@ -41,7 +41,17 @@ export const CarrouselTitle = styled.h1`
 `;
 
 export const Carrousel = styled(Slider)`
+    width: 100%;
+    .slick-list{
+        width: 100%;
+    }
     .slick-slide{
-        margin: 0 6px;
+        margin: 0 3px;
+    }
+    .slick-next{
+        right: -15px;
+    }
+    .slick-prev{
+        left: -17px;
     }
 `;

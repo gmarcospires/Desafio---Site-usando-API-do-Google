@@ -5,11 +5,12 @@ const Card = styled.div`
     display: flex;
     padding: 5px;
     justify-content: center;
-    height: 110px;
+    height: 100px;
     width: 90px;
     border-radius: 10px;
     background-image: url(${(props)=>props.photo});
     background-size: cover;
+    object-fit: cover;
 `;
 
 const Title = styled.span`

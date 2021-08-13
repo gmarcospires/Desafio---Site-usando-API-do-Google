@@ -4,3 +4,4 @@ yarn add react-slick //Carrossel
 styled-components
 styled-reset
 react-rating-stars-component 
+react portals

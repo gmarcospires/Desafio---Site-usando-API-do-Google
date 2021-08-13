@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Container, Search, Logo, Wrapper, Map, CarrouselTitle, Carrousel } from './styles'
+import { Container, Search, Logo, Wrapper, CarrouselTitle, Carrousel } from './styles'
 import { TextField } from '@material-ui/core'
 import SearchIcon from '@material-ui/icons/Search';
 import InputAdornment from '@material-ui/core/InputAdornment';
 // import Slider from "react-slick";
-import {Card, RestaurantCard} from "../../components";
+import {Card, RestaurantCard, Modal, Map} from "../../components";
 
 import logo from '../../assets/logo.svg';
 import restaurante from '../../assets/restaurante-fake.png'
@@ -12,6 +12,7 @@ import restaurante from '../../assets/restaurante-fake.png'
 
 const Home = () => {
     const [inputValue, setInputValue] = useState("");
+    const [modalOpened, setModalOpened] = useState(false)
     const settings = {
         dots: false,
         infinite: true,
@@ -58,7 +59,7 @@ const Home = () => {
                 <RestaurantCard></RestaurantCard>
             </Container>
             <Map>
-
+                <Modal open={modalOpened} onClose={()=> setModalOpened(!modalOpened)}></Modal>
             </Map>
         </Wrapper>
     );
