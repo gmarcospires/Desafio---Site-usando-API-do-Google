@@ -6,9 +6,9 @@ Nete projeto, utilizei tecnologias de HTML, CSS, JS, React. Ative o modo escuro 
 Foi testado no Chrome Versão 92.0.4515.131 e Microsoft Edge Versão 92.0.902.67 e Firefox Versão 91.0.
 
 ##### Imagens
-![Imagem do Projeto](./site-com-api-google/src/index.png)
+![Imagem do Projeto](./site-com-api-google/src/assets/index.png)
 
-![Imagem do Projeto](./site-com-api-google/src/index_info.png)
+![Imagem do Projeto](./site-com-api-google/src/assets/index_info.png)
 
 ## O Desafio
 
