@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Container, Search, Logo, Wrapper, CarrouselTitle, Carrousel, ContainerRestaurantCard, ModalTitle, ModalContent } from './styles'
+import { Container, Search, Logo, Wrapper, CarrouselTitle, Carrousel, ContainerRestaurantCard, ModalTitle, ModalContent, ContainerLoading } from './styles'
 import { TextField } from '@material-ui/core'
 import SearchIcon from '@material-ui/icons/Search';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import { useSelector } from "react-redux";
 
 // import Slider from "react-slick";
-import { Card, RestaurantCard, Modal, Map, Loader } from "../../components";
+import { Card, RestaurantCard, Modal, Map, Loader, Skeleton } from "../../components";
 
 import logo from '../../assets/logo.svg';
 import restaurante from '../../assets/restaurante-fake.png'
@@ -63,19 +63,23 @@ const Home = () => {
                         onChange={(e) => setInputValue(e.target.value)}
                         onKeyPress={handleKeyPress}
                     />
-                    {restaurants.length > 0 ? (
-                        <>
-                            <CarrouselTitle>Na sua área</CarrouselTitle>
-                            <Carrousel {...settings}>
-                                {restaurants.map(
-                                    (restaurant) =>
-                                        <Card photo={restaurant.photos ? restaurant.photos[0].getUrl() : restaurante} title={restaurant.name} key={restaurant.place_id}></Card>
-                                )}
-                            </Carrousel>
-                        </>
-                    ) : (
-                        <Loader></Loader>
-                    )}
+                    {restaurants.length > 0 ?
+                        (
+                            <>
+                                <CarrouselTitle>Na sua área</CarrouselTitle>
+                                <Carrousel {...settings}>
+                                    {restaurants.map(
+                                        (restaurant) =>
+                                            <Card photo={restaurant.photos ? restaurant.photos[0].getUrl() : restaurante} title={restaurant.name} key={restaurant.place_id}></Card>
+                                    )}
+                                </Carrousel>
+                            </>
+                        ) : (
+                            <ContainerLoading>
+                                <Loader></Loader>
+                            </ContainerLoading>
+                            
+                        )}
 
                 </Search>
                 <ContainerRestaurantCard>
@@ -90,10 +94,23 @@ const Home = () => {
                 </ContainerRestaurantCard>
             </Container>
             <Modal open={modalOpened} onClose={() => setModalOpened(!modalOpened)}>
-                <ModalTitle>{restaurantSelected?.name}</ModalTitle>
-                <ModalContent>{restaurantSelected?.formatted_phone_number}</ModalContent>
-                <ModalContent>{restaurantSelected?.formatted_address}</ModalContent>
-                <ModalContent>{restaurantSelected?.oppening_hours?.open_now ? 'Aberto agora :)' : 'Fechado no momento :('}</ModalContent>
+                {restaurantSelected ? (
+                    <>
+                        <ModalTitle>{restaurantSelected?.name}</ModalTitle>
+                        <ModalContent>{restaurantSelected?.formatted_phone_number}</ModalContent>
+                        <ModalContent>{restaurantSelected?.formatted_address}</ModalContent>
+                        <ModalContent>{restaurantSelected?.oppening_hours?.open_now ? 'Aberto agora :)' : 'Fechado no momento :('}</ModalContent>
+                    </>
+                ) : (
+                    <>
+                        <Skeleton height="10px" width="10px" mode="1"></Skeleton>
+                        <Skeleton height="10px" width="10px" mode="1"></Skeleton>
+                        <Skeleton height="10px" width="10px" mode="1"></Skeleton>
+                        <Skeleton height="10px" width="10px" mode="1"></Skeleton>
+                    </>
+                )
+                }
+
             </Modal>
             <Map query={query} placeId={placeId} />
         </Wrapper>

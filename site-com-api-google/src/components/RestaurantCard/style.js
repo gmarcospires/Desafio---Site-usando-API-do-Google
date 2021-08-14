@@ -20,7 +20,7 @@ export const Restaurant = styled.div`
 `;
 
 export const RestaurantInfo = styled.div`
-    display: flex;
+    display: ${(props)=> props.imageLoaded ? 'flex': 'none'}
     flex-direction: column; 
     padding: 10px; 
 `;
@@ -44,6 +44,7 @@ export const Address = styled.span`
 `;
 
 export const RestaurantPhoto = styled.img`
+    display: ${(props)=> props.imageLoaded ? 'block': 'none'}
     padding: 2px;
     border-radius: 10px;
     width: 100px;

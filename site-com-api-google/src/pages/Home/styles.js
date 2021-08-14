@@ -49,7 +49,7 @@ export const Carrousel = styled(Slider)`
         margin: 0 1px;
     }
     .slick-next{
-        right: -15px;
+        right: -17px;
     }
     .slick-prev{
         left: -17px;
@@ -82,4 +82,10 @@ export const ModalContent = styled.p`
     font-size: 16px;
     line-height: 19px;
     color: ${(props) => props.theme.colors.text};
+`;
+
+export const ContainerLoading = styled.div`
+    height: 90vh;
+    width: 340px;
+    z-index: 2;
 `;
