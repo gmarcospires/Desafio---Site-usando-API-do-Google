@@ -7,3 +7,4 @@ react-rating-stars-component
 react portals
 google-maps-react
 react-lottie
+https://www.netlify.com/
