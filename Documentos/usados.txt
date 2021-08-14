@@ -5,3 +5,5 @@ styled-components
 styled-reset
 react-rating-stars-component 
 react portals
+google-maps-react
+react-lottie

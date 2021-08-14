@@ -13,7 +13,7 @@ export const Overlay = styled.div`
     width: 100%;
     height: 100%;
     background: rgba(78,89,131,0.5);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(7px);
     z-index: 999;
 `;
 
@@ -24,7 +24,7 @@ export const Dialog = styled.div`
     max-height: calc(100% - 144px);
     width: 500px;
     padding: 24px;
-    background-color: ${(props) => props.theme.colors.background};
+    background-color: ${(props) => props.theme.colors.backgroundAlternative2};
     box-shadow: 0px 0px 32px rgba(78,89,131,0.2);
     border-radius: 10px;
 `;

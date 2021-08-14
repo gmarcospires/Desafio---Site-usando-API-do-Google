@@ -1,6 +1,7 @@
 import React from "react";
 import Home from './pages/Home';
-
+import { Provider } from "react-redux";
+import store from './redux/store'
 //Tema
 import theme from "./theme";
 import { ThemeProvider } from 'styled-components';
@@ -19,16 +20,21 @@ class App extends React.Component{
     const innerTheme = createTheme({
       palette: {
           type: colorScheme.matches ? 'dark': 'light',
+          primary: {
+            main: theme({dark: true}).colors.primary,
+          },
       }
     });
     colorScheme.onchange = (e) => this.setState({});
     return (
+      <Provider store={store}>
       <ThemeProvider theme={theme(colorScheme.matches ? {dark: true} : {dark: false})}>
         <Reset/>
         <MuiThemeProvider theme={innerTheme}>
           <Home />
         </MuiThemeProvider>
       </ThemeProvider>
+      </Provider>
     );
   }
 }

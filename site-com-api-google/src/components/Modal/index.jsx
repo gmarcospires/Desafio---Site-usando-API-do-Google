@@ -4,11 +4,13 @@ import theme from "../../theme";
 import { ThemeProvider } from 'styled-components';
 import { Dialog, Overlay } from "./style";
 
-class Modal extends React.Component {
+
+ class Modal extends React.Component {
     constructor(props){
         super(props);
         this.escFunction = this.escFunction.bind(this);
       }
+      
       escFunction(event){
         if(this.props.open){
             if(event.keyCode === 27) {
@@ -22,25 +24,25 @@ class Modal extends React.Component {
       componentWillUnmount(){
         window.removeEventListener("keydown",this.escFunction);
       }
+
     render() {
-        
         if(!this.props.open) return null;
         var onClose = this.props.onClose;
         
         function onOverlayClick(){
             onClose();
         }
-        function onDialog(e){
+        function onDialogClick(e){
             e.stopPropagation();
         }
         const colorScheme = matchMedia('(prefers-color-scheme: dark)');
-        colorScheme.onchange = (e) => this.setState({});
+        colorScheme.onchange = () => this.setState({});
+        
         return (
-            
             <ThemeProvider theme={theme(colorScheme.matches ? { dark: true } : { dark: false })}>
                 <PortalModal>
                     <Overlay onClick={onOverlayClick}>
-                        <Dialog onClick={onDialog}>
+                        <Dialog onClick={onDialogClick}>
                             {this.props.children}
                         </Dialog>
                     </Overlay>
@@ -48,7 +50,6 @@ class Modal extends React.Component {
             </ThemeProvider>
         )
     }
-
-}
+} 
 
 export default Modal;

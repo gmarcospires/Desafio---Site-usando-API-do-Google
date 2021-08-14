@@ -22,7 +22,7 @@ const theme = (props)=>{
         return {
             colors:{
                 primary: '#6200ee',
-                background: '#00000014',
+                background: '#ebebeb',
                 backgroundAlternative: '#ffffff',
                 backgroundAlternative2: '#ebebeb',
                 text: '#000000B3',

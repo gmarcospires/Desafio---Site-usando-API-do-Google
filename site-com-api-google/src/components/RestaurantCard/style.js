@@ -8,9 +8,10 @@ export const Restaurant = styled.div`
     margin: 5px;
     padding: 16px;
     background-color: ${(props) => props.theme.colors.backgroundAlternative};
-    border: 1px transparent;
-    border-left: 5px transparent;
+    border: 1px solid transparent;
+    border-left: 5px solid transparent;
     border-radius: 10px;
+    transition: all 0.5s;
     :hover{
         border: 1px solid ${(props) => props.theme.colors.primary};
         border-left: 5px solid ${(props) => props.theme.colors.primary};
@@ -20,7 +21,8 @@ export const Restaurant = styled.div`
 
 export const RestaurantInfo = styled.div`
     display: flex;
-    flex-direction: column;  
+    flex-direction: column; 
+    padding: 10px; 
 `;
 
 export const Title = styled.span`
@@ -42,8 +44,10 @@ export const Address = styled.span`
 `;
 
 export const RestaurantPhoto = styled.img`
+    padding: 2px;
     border-radius: 10px;
     width: 100px;
     object-fit: cover;
     height: 100px;
+    margin: auto;
 `;

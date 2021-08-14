@@ -3,20 +3,20 @@ import { Address, Restaurant, RestaurantInfo, Title, RestaurantPhoto } from "./s
 import ReactStars from "react-rating-stars-component";
 import restaurante from '../../assets/restaurante-fake.png'
 
-const RestaurantCard = () =>{
+const RestaurantCard = ({restaurant, onClick}) =>{
     return(
-        <Restaurant>
+        <Restaurant onClick={onClick}>
             <RestaurantInfo>
-               <Title> Pé de Fava</Title>
+               <Title> {restaurant.name}</Title>
                 <ReactStars
                     count={5}
                     isHalf
                     edit={false}
-                    value={4}
+                    value={restaurant.rating}
                 ></ReactStars>
-               <Address>Rua dos Bobos, 0 - Guarulhos</Address>
+               <Address>{restaurant.vicinity || restaurant.formatted_address}</Address>
             </RestaurantInfo>
-            <RestaurantPhoto src={restaurante} alt='Foto do Restaurante'/>
+            <RestaurantPhoto src={restaurant.photos ? restaurant.photos[0].getUrl() : restaurante} alt='Foto do Restaurante'/>
         </Restaurant>
     )
 }

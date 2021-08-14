@@ -5,7 +5,7 @@ const Card = styled.div`
     display: flex;
     padding: 5px;
     justify-content: center;
-    height: 100px;
+    height: 110px;
     width: 90px;
     border-radius: 10px;
     background-image: url(${(props)=>props.photo});
@@ -18,6 +18,7 @@ const Title = styled.span`
     color: ${(props)=> props.theme.colors.textAlternative};
     font-size: 16px;
     margin: 10px;
+    height: min-content;
 `;
 
 const ImageCard = ({photo,title}) =>{

@@ -9,8 +9,8 @@ export const Wrapper = styled.div`
 export const Container = styled.aside`
     background-color: ${(props) => props.theme.colors.background};
     width: 360px;
-    height: 100vh;
-    // overflow-y: auto;
+    height: 98.2vh;
+    overflow-y: hidden;
 `;
 
 export const Search = styled.section`
@@ -46,7 +46,7 @@ export const Carrousel = styled(Slider)`
         width: 100%;
     }
     .slick-slide{
-        margin: 0 3px;
+        margin: 0 1px;
     }
     .slick-next{
         right: -15px;
@@ -54,4 +54,32 @@ export const Carrousel = styled(Slider)`
     .slick-prev{
         left: -17px;
     }
+`;
+export const ContainerRestaurantCard = styled.div`
+    background-color: ${(props) => props.theme.colors.background};
+    width: 360px;
+    height: calc(100% - 360px);
+    overflow-y: auto;
+`;
+
+export const ModalTitle = styled.p`
+    margin: 5px;
+    letter-spacing: 0.11px;
+    text-transform: none;
+    font-family: ${(props)=> props.theme.fonts.regular} !important;
+    font-size: 20px;
+    line-height: 29px;
+    color: ${(props) => props.theme.colors.text};
+    font-weight: bold;
+`;
+
+export const ModalContent = styled.p`
+    margin: 5px;
+    letter-spacing: 0.15px;
+    text-transform: none;
+    font-weight: normal;
+    font-family: ${(props)=> props.theme.fonts.regular} !important;
+    font-size: 16px;
+    line-height: 19px;
+    color: ${(props) => props.theme.colors.text};
 `;
